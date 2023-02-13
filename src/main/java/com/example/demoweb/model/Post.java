@@ -1,16 +1,27 @@
 package com.example.demoweb.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Post {
+@Entity
+public class Post implements Serializable {
 
-    private final String text;
 
+    private String text;
+
+    @Id
+    @GeneratedValue
     private Long id;
 
     private int likes;
 
     private Date creationDate;
+
+    public Post() {
+    }
 
     public Post(String text, Date creationDate) {
         this.text = text;
